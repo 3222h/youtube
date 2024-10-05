@@ -13,7 +13,7 @@
       setInterval(() => {
         if (!video.paused) {
           video.pause(); // Pause the video
-          setTimeout(() => video.play(), 100); // Play it again after 0.1 seconds
+          setTimeout(() => video.play(), 1000); // Play it again after 1 seconds
         }
       }, 120000); // Every 2 minutes (120000 milliseconds)
     }
