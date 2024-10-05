@@ -11,15 +11,14 @@
   ],
   "host_permissions": [
     "*://*.youtube.com/*",
-    "*://*.google.com/*", // Add this line to allow access to Google
-    "*://*/*" // If you want to allow access to all hosts (not recommended for general use)
+    "*://*.google.com/*" // You can add other necessary domains here
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": ["*://*.youtube.com/*"], // Only run on YouTube
       "js": ["content.js"]
     }
   ],
