@@ -9,20 +9,19 @@
     "webNavigation",
     "storage"
   ],
-  "host_permissions": [
-    "*://*.youtube.com/*",
-    "*://*.google.com/*" // You can add other necessary domains here
-  ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"], // Only run on YouTube
+      "matches": ["*://*.youtube.com/*"],
       "js": ["content.js"]
     }
   ],
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ]
 }
