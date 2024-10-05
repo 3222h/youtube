@@ -1,14 +1,22 @@
 {
-  "manifest_version": 3,
-  "name": "IP Info Viewer",
-  "version": "1.0",
-  "description": "Displays IP information including IP type, country, and time zone.",
-  "permissions": ["activeTab", "storage"],
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "service_worker": "background.js"
-  }
+    "manifest_version": 3,
+    "name": "Always On Timezone, Geolocation, and Locale Changer",
+    "version": "1.0.0",
+    "description": "Automatically changes timezone, geolocation, and locale.",
+    "permissions": [
+        "storage",
+        "debugger",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "128": "icon128.png"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ]
 }
-
