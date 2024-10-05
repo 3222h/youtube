@@ -1,14 +1,18 @@
 document.getElementById('start').addEventListener('click', () => {
-  chrome.scripting.executeScript({
-    target: { allFrames: true },
-    func: enableSpoofing
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.scripting.executeScript({
+      target: { tabId: tabs[0].id, allFrames: true },
+      function: enableSpoofing
+    });
   });
 });
 
 document.getElementById('stop').addEventListener('click', () => {
-  chrome.scripting.executeScript({
-    target: { allFrames: true },
-    func: disableSpoofing
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.scripting.executeScript({
+      target: { tabId: tabs[0].id, allFrames: true },
+      function: disableSpoofing
+    });
   });
 });
 
