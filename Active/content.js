@@ -6,7 +6,7 @@
     window.dispatchEvent(new Event('focus')); // Dispatch focus event
   }
 
-  // Function to pause and play the video every 2 minutes
+  // Function to pause for 0.1 seconds and then play the video every 2 minutes
   function pauseAndPlayEveryTwoMinutes() {
     let video = document.querySelector('video');
     if (video) {
@@ -15,7 +15,7 @@
           video.pause(); // Pause the video
           setTimeout(() => video.play(), 100); // Play it again after 0.1 seconds
         }
-      }, 120000); // Every 2 minutes (120,000 milliseconds)
+      }, 120000); // Every 2 minutes (120000 milliseconds)
     }
   }
 
@@ -33,7 +33,7 @@
   // Keep spoofing tab focus every second to ensure tab stays "active"
   setInterval(keepTabInFocus, 1000);
 
-  // Start the pause/play function and random scroll
+  // Start pause/play every two minutes and random scroll
   pauseAndPlayEveryTwoMinutes();
   randomScroll();
 })();
