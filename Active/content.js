@@ -4,16 +4,21 @@
     Object.defineProperty(document, 'hidden', { value: false, writable: false });
     Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: false });
     window.dispatchEvent(new Event('focus')); // Dispatch focus event
+    console.log('Tab focus spoofed: Tab is active'); // Log focus state
   }
 
-  // Function to pause for 0.1 seconds and then play the video every 2 minutes
+  // Function to pause for 10 seconds and then play the video every 2 minutes
   function pauseAndPlayEveryTwoMinutes() {
     let video = document.querySelector('video');
     if (video) {
       setInterval(() => {
         if (!video.paused) {
+          console.log('Pausing video...'); // Log pause action
           video.pause(); // Pause the video
-          setTimeout(() => video.play(), 1000); // Play it again after 1 seconds
+          setTimeout(() => {
+            video.play(); // Play it again after 10 seconds
+            console.log('Playing video after 1 seconds'); // Log play action
+          }, 1000);
         }
       }, 120000); // Every 2 minutes (120000 milliseconds)
     }
