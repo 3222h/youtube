@@ -1,39 +1,33 @@
 (function () {
-  // Simulate tab being in focus using Page Visibility API spoofing
   function keepTabInFocus() {
     Object.defineProperty(document, 'hidden', { value: false, writable: false });
     Object.defineProperty(document, 'visibilityState', { value: 'visible', writable: false });
-    window.dispatchEvent(new Event('focus')); // Dispatch focus event
+    window.dispatchEvent(new Event('focus'));
   }
 
-  // Function to randomly pause and play the video
   function randomPausePlay() {
     let video = document.querySelector('video');
     if (video) {
       setInterval(() => {
         if (!video.paused) {
-          video.pause(); // Pause the video
-          setTimeout(() => video.play(), 500); // Play it again after 0.5 seconds
+          video.pause();
+          setTimeout(() => video.play(), 500);
         }
-      }, Math.random() * 10000 + 5000); // Random interval between 5 and 15 seconds
+      }, Math.random() * 10000 + 5000);
     }
   }
 
-  // Function to randomly scroll down and then back up
   function randomScroll() {
     setInterval(() => {
-      let scrollAmount = Math.floor(Math.random() * 9) + 2; // Scroll by 2 to 10 pixels
-      window.scrollBy(0, scrollAmount); // Scroll down
+      let scrollAmount = Math.floor(Math.random() * 9) + 2;
+      window.scrollBy(0, scrollAmount);
       setTimeout(() => {
-        window.scrollBy(0, -scrollAmount); // Scroll back up after random delay
-      }, Math.random() * 1500 + 500); // Random delay between 0.5 and 2 seconds for scroll up
-    }, Math.random() * 5000 + 2000); // Random scroll every 2 to 7 seconds
+        window.scrollBy(0, -scrollAmount);
+      }, Math.random() * 1500 + 500);
+    }, Math.random() * 5000 + 2000);
   }
 
-  // Keep spoofing tab focus every second to ensure tab stays "active"
   setInterval(keepTabInFocus, 1000);
-
-  // Start random pause/play and random scroll
   randomPausePlay();
   randomScroll();
 })();
