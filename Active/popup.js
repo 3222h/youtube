@@ -1,23 +1,21 @@
 document.getElementById('start').addEventListener('click', () => {
-    chrome.scripting.executeScript({
-        target: { allFrames: true },
-        func: enableSpoofing
-    });
-    document.getElementById('status').innerText = 'Status: Running';
+  chrome.scripting.executeScript({
+    target: { allFrames: true },
+    func: enableSpoofing
+  });
 });
 
 document.getElementById('stop').addEventListener('click', () => {
-    chrome.scripting.executeScript({
-        target: { allFrames: true },
-        func: disableSpoofing
-    });
-    document.getElementById('status').innerText = 'Status: Not Running';
+  chrome.scripting.executeScript({
+    target: { allFrames: true },
+    func: disableSpoofing
+  });
 });
 
 function enableSpoofing() {
-    localStorage.setItem('spoofing', 'true');
+  localStorage.setItem('spoofing', 'true');
 }
 
 function disableSpoofing() {
-    localStorage.setItem('spoofing', 'false');
+  localStorage.setItem('spoofing', 'false');
 }
