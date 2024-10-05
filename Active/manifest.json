@@ -9,6 +9,11 @@
     "webNavigation",
     "storage"
   ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.google.com/*", // Add this line to allow access to Google
+    "*://*/*" // If you want to allow access to all hosts (not recommended for general use)
+  ],
   "background": {
     "service_worker": "background.js"
   },
@@ -20,8 +25,5 @@
   ],
   "action": {
     "default_popup": "popup.html"
-  },
-  "host_permissions": [
-    "*://*.youtube.com/*"
-  ]
+  }
 }
