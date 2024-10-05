@@ -1,19 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Get the user's IP information
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            const ip = data.ip;
-            document.getElementById('ip').textContent = ip;
-            return fetch(`https://ipapi.co/${ip}/json/`);
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('ip-type').textContent = data.org || 'N/A';
-            document.getElementById('country').textContent = data.country_name || 'N/A';
-            document.getElementById('browser-timezone').textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        })
-        .catch(error => {
-            console.error('Error fetching IP information:', error);
-        });
+document.getElementById('start').addEventListener('click', () => {
+    chrome.scripting.executeScript({
+        target: { allFrames: true },
+        func: enableSpoofing
+    });
+    document.getElementById('status').innerText = 'Status: Running';
 });
+
+document.getElementById('stop').addEventListener('click', () => {
+    chrome.scripting.executeScript({
+        target: { allFrames: true },
+        func: disableSpoofing
+    });
+    document.getElementById('status').innerText = 'Status: Not Running';
+});
+
+function enableSpoofing() {
+    localStorage.setItem('spoofing', 'true');
+}
+
+function disableSpoofing() {
+    localStorage.setItem('spoofing', 'false');
+}
