@@ -10,30 +10,42 @@
   function randomPausePlay() {
     let video = document.querySelector('video');
     if (video) {
+      // Change interval to every 5 minutes (300000 milliseconds)
       setInterval(() => {
         if (!video.paused) {
           video.pause(); // Pause the video
-          setTimeout(() => video.play(), 500); // Play it again after 0.5 seconds
+          setTimeout(() => video.play(), 1000); // Play it again after 1 second
         }
-      }, Math.random() * 10000 + 5000); // Random interval between 5 and 15 seconds
+      }, 300000); // 5 minutes
+    }
+  }
+
+  // Function to skip the video ahead by 5 seconds every 9 minutes
+  function randomSkip() {
+    let video = document.querySelector('video');
+    if (video) {
+      setInterval(() => {
+        video.currentTime += 5; // Skip ahead 5 seconds
+      }, 540000); // Repeat this every 9 minutes
     }
   }
 
   // Function to randomly scroll down and then back up
   function randomScroll() {
     setInterval(() => {
-      let scrollAmount = Math.floor(Math.random() * 9) + 2; // Scroll by 2 to 10 pixels
+      let scrollAmount = Math.floor(Math.random() * 21) + 20; // Random scroll between 20 to 40 pixels
       window.scrollBy(0, scrollAmount); // Scroll down
       setTimeout(() => {
-        window.scrollBy(0, -scrollAmount); // Scroll back up after random delay
-      }, Math.random() * 1500 + 500); // Random delay between 0.5 and 2 seconds for scroll up
-    }, Math.random() * 5000 + 2000); // Random scroll every 2 to 7 seconds
+        window.scrollBy(0, -scrollAmount); // Scroll back up after 2 seconds
+      }, 2000); // Scroll back after 2 seconds
+    }, 60000); // Random scroll every 1 minute
   }
 
-  // Keep spoofing tab focus every second to ensure tab stays "active"
-  setInterval(keepTabInFocus, 1000);
+  // Keep spoofing tab focus every 0.1 seconds to ensure tab stays "active"
+  setInterval(keepTabInFocus, 100); // Every 0.1 seconds
 
-  // Start random pause/play and random scroll
+  // Start random pause/play, skip, and random scroll
   randomPausePlay();
+  randomSkip();
   randomScroll();
 })();
