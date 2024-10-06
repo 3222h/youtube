@@ -18,6 +18,9 @@
       "js": ["content.js"]
     }
   ],
+  "action": {
+    "default_popup": "popup.html"
+  },
   "host_permissions": [
     "*://*.youtube.com/*"
   ]
