@@ -41,11 +41,36 @@
     }, 60000); // Random scroll every 1 minute
   }
 
-  // Keep spoofing tab focus every 0.1 seconds to ensure tab stays "active"
-  setInterval(keepTabInFocus, 100); // Every 0.1 seconds
+  // Function to auto-resume the video if paused for 1 minute
+  function autoResumeVideo() {
+    let video = document.querySelector('video');
+    let pauseStartTime = null; // Variable to track pause start time
 
-  // Start random pause/play, skip, and random scroll
+    if (video) {
+      setInterval(() => {
+        if (video.paused) {
+          if (!pauseStartTime) {
+            pauseStartTime = Date.now(); // Start tracking time when paused
+          } else {
+            const pausedDuration = (Date.now() - pauseStartTime) / 1000; // Calculate paused duration in seconds
+            if (pausedDuration >= 60) {
+              video.play(); // Resume the video
+              pauseStartTime = null; // Reset pause tracking
+            }
+          }
+        } else {
+          pauseStartTime = null; // Reset if the video is playing
+        }
+      }, 1000); // Check every second
+    }
+  }
+
+  // Keep spoofing tab focus every 1 second to ensure tab stays "active"
+  setInterval(keepTabInFocus, 1000); // Every 1 second
+
+  // Start random pause/play, skip, random scroll, and auto resume
   randomPausePlay();
   randomSkip();
   randomScroll();
+  autoResumeVideo(); // Add the auto resume functionality
 })();
