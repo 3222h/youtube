@@ -9,7 +9,7 @@
     /* Set the popup width and height */
     body {
       width: 300px;
-      height: 300px;
+      height: auto; /* Adjusted to fit content */
       font-family: Arial, sans-serif;
       padding: 10px;
       text-align: center;
@@ -41,6 +41,18 @@
       font-weight: bold;
     }
 
+    /* Style for the Copy button */
+    #copyButton {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
     .link-list {
       margin-top: 20px;
       font-size: 18px;
@@ -63,6 +75,9 @@
     <p><strong>IP Address:</strong> <span id="ip"></span></p>
     <p><strong>Country:</strong> <span id="country"></span></p>
   </div>
+
+  <!-- Copy Button -->
+  <button id="copyButton">Copy Nomashine</button>
 
   <!-- Links Section -->
   <div class="link-list">
