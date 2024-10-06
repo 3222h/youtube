@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Copy button functionality for R-Repo
   rRepoButton.addEventListener('click', function() {
-    const contentToCopy = "git clone https://github.com/3222h/r-repo.git\n"; // Update with the actual URL for R-Repo
+    const contentToCopy = "rm -rf youtube\n"; // Update with the actual URL for R-Repo
     navigator.clipboard.writeText(contentToCopy).catch(err => {
       console.error('Could not copy text: ', err);
     });
