@@ -19,6 +19,11 @@ body {
 #ip {
   font-size: 22px;
   font-weight: bold;
+  background-color: yellow;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
 }
 
 #country {
@@ -26,11 +31,22 @@ body {
   font-weight: bold;
 }
 
-#ip-type {
-  font-size: 18px;
-}
-
 #flag img {
   width: 40px;
   height: auto;
+}
+
+.link-list {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: left;
+}
+
+.link-list a {
+  color: blue;
+  text-decoration: none;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
 }
