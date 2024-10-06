@@ -2,7 +2,6 @@
   "manifest_version": 3,
   "name": "YouTube Activity Spoofer",
   "version": "1.0",
-  "description": "An extension to spoof activity on YouTube.",
   "permissions": [
     "scripting",
     "tabs",
@@ -10,20 +9,19 @@
     "webNavigation",
     "storage"
   ],
-  "host_permissions": [
-    "*://*.youtube.com/*"
-  ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/*"],
-      "js": ["content.js"],
-      "all_frames": true
+      "js": ["content.js"]
     }
   ],
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ]
 }
