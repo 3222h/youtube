@@ -25,9 +25,15 @@
       margin: 10px 0;
     }
 
+    /* Style for IP address: yellow background and black text */
     #ip {
       font-size: 22px;
       font-weight: bold;
+      background-color: yellow;
+      color: black;
+      padding: 5px;
+      border-radius: 5px;
+      display: inline-block;
     }
 
     #country {
@@ -35,13 +41,24 @@
       font-weight: bold;
     }
 
-    #ip-type {
-      font-size: 18px;
-    }
-
     #flag img {
       width: 40px;
       height: auto;
+    }
+
+    .link-list {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .link-list a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    .link-list a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -50,8 +67,14 @@
     <h2>Your IP Info</h2>
     <p><strong>IP Address:</strong> <span id="ip"></span></p>
     <p><strong>Country:</strong> <span id="country"></span></p>
-    <p><strong>IP Type:</strong> <span id="ip-type"></span></p>
     <p id="flag"></p>
+  </div>
+
+  <!-- Links Section -->
+  <div class="link-list">
+    <p><strong>1. <a href="https://ipscore.io/" target="_blank">IPSCORE</a></strong></p>
+    <p><strong>2. <a href="https://www.youtube.com/" target="_blank">YOUTUBE</a></strong></p>
+    <p><strong>3. <a href="https://www.youtube.com/signin_prompt?app=desktop&next=https%3A%2F%2Fwww.youtube.com%2F" target="_blank">CHANNEL</a></strong></p>
   </div>
 
   <script src="popup.js"></script>
