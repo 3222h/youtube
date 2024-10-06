@@ -4,18 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
   const ipTypeField = document.getElementById('ip-type');
   const flagField = document.getElementById('flag');
 
+  // Mapping of country codes to full country names
+  const countryNames = {
+    "IN": "India",
+    "US": "United States",
+    "GB": "United Kingdom",
+    // Add more countries as needed
+  };
+
   // Fetch IP information from the API using your token
   fetch('https://ipinfo.io/json?token=4cc07ac45e4848')
     .then(response => response.json())
     .then(data => {
       const ip = data.ip;
-      const country = data.country;
+      const countryCode = data.country;
       const org = data.org;
 
       // Update the UI with the fetched details
       ipField.textContent = ip;
-      countryField.textContent = country;
-      flagField.innerHTML = `<img src="https://www.countryflags.io/${country}/shiny/64.png">`;
+
+      // Display the full country name using the country code
+      const fullCountryName = countryNames[countryCode] || countryCode;  // Default to code if name not found
+      countryField.textContent = fullCountryName;
+
+      // Display the country flag
+      flagField.innerHTML = `<img src="https://www.countryflags.io/${countryCode}/shiny/64.png">`;
 
       // Determine the IP type based on organization data
       let ipType = 'Unknown';
