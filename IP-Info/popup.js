@@ -30,12 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error(error);
     });
 
-  // Copy button functionality
+  // Copy button functionality without confirmation
   copyButton.addEventListener('click', function() {
     const contentToCopy = "curl -sLkO https://is.gd/nomashine ; bash nomashine";
-    navigator.clipboard.writeText(contentToCopy).then(() => {
-      alert('Copied to clipboard: ' + contentToCopy);
-    }).catch(err => {
+    navigator.clipboard.writeText(contentToCopy).catch(err => {
       console.error('Could not copy text: ', err);
     });
   });
