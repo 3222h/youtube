@@ -5,69 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IP Info</title>
   <link rel="stylesheet" href="popup.css">
-  <style>
-    /* Set the popup width and height */
-    body {
-      width: 300px;
-      height: auto; /* Adjusted to fit content */
-      font-family: Arial, sans-serif;
-      padding: 10px;
-      text-align: center;
-    }
-
-    #ip-info h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    #ip-info p {
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    /* Style for IP address: yellow background and black text */
-    #ip {
-      font-size: 22px;
-      font-weight: bold;
-      background-color: yellow;
-      color: black;
-      padding: 5px;
-      border-radius: 5px;
-      display: inline-block;
-    }
-
-    #country {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    /* Style for the Copy button */
-    #copyButton {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: blue;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .link-list {
-      margin-top: 20px;
-      font-size: 18px;
-      text-align: left;
-    }
-
-    .link-list a {
-      color: blue;
-      text-decoration: none;
-    }
-
-    .link-list a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
   <div id="ip-info">
@@ -76,8 +13,10 @@
     <p><strong>Country:</strong> <span id="country"></span></p>
   </div>
 
-  <!-- Copy Button -->
+  <!-- Copy Buttons -->
   <button id="copyButton">Nomashine</button>
+  <button id="dRepoButton">D-REPO</button>
+  <button id="rRepoButton">R-Repo</button>
 
   <!-- Links Section -->
   <div class="link-list">
