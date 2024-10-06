@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const ipField = document.getElementById('ip');
   const countryField = document.getElementById('country');
-  const flagField = document.getElementById('flag');
 
   // Mapping of country codes to full country names
   const countryNames = {
@@ -24,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Display the full country name using the country code
       const fullCountryName = countryNames[countryCode] || countryCode;  // Default to code if name not found
       countryField.textContent = fullCountryName;
-
-      // Display the country flag
-      flagField.innerHTML = `<img src="https://www.countryflags.io/${countryCode}/shiny/64.png">`;
     })
     .catch(error => {
       ipField.textContent = 'Error fetching IP';
