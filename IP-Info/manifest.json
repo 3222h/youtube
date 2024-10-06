@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "IP Info Display",
+  "version": "1.0",
+  "description": "Displays the current IP, country, and IP type.",
+  "permissions": ["activeTab", "geolocation", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
