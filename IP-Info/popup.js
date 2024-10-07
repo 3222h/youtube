@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const copyButton = document.getElementById('copyButton');
   const dRepoButton = document.getElementById('dRepoButton');
   const rRepoButton = document.getElementById('rRepoButton');
+  const activeButton = document.getElementById('activeButton'); // Updated ID for active button
 
   // Mapping of country codes to full country names
   const countryNames = {
@@ -50,7 +51,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Copy button functionality for R-Repo
   rRepoButton.addEventListener('click', function() {
-    const contentToCopy = "rm -rf youtube\n"; // Update with the actual URL for R-Repo
+    const contentToCopy = "rm -rf youtube\n";
+    navigator.clipboard.writeText(contentToCopy).catch(err => {
+      console.error('Could not copy text: ', err);
+    });
+  });
+
+  // Copy button functionality for Active
+  activeButton.addEventListener('click', function() {
+    const contentToCopy = `
+function checkTabFocus() {
+  if (document.hidden) {
+    console.log("Tab is not in focus.");
+  } else {
+    console.log("Tab is in focus.");
+  }
+}
+
+// Initial check
+checkTabFocus();
+
+// Continuously monitor focus status every 1 second
+setInterval(checkTabFocus, 1000);
+`;
     navigator.clipboard.writeText(contentToCopy).catch(err => {
       console.error('Could not copy text: ', err);
     });
