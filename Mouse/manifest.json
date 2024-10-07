@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Fake Cursor Simulator",
+  "version": "1.0",
+  "description": "Simulates a fake mouse cursor that moves and clicks only on empty spaces.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
