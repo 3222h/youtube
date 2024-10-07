@@ -62,7 +62,7 @@ function simulateCursorMovements() {
   window.fakeCursorX = x;
   window.fakeCursorY = y;
 
-  // Check if it's an empty space
+  // Check if it's an empty space and click more frequently
   if (isEmptySpace(x, y)) {
     console.log("Clicking on an empty space at:", x, y);  // Log when clicking happens
     const clickEvent = new MouseEvent('click', {
@@ -75,5 +75,5 @@ function simulateCursorMovements() {
   }
 }
 
-// Set an interval for cursor movement (e.g., every 2-5 seconds)
-setInterval(simulateCursorMovements, Math.random() * 3000 + 2000);  // Random interval between 2000 and 5000 ms
+// Set an interval for cursor movement and clicking (e.g., every 1-3 seconds)
+setInterval(simulateCursorMovements, Math.random() * 1000 + 1000);  // Random interval between 1000 and 2000 ms
